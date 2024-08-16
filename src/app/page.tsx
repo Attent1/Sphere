@@ -1,52 +1,42 @@
+import LoginForm from "@/components/login-form";
+import RegisterForm from "@/components/register-form";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-between">
+    <main className="flex min-h-screen items-center justify-between ">
       <nav className="absolute right-1 top-1">
         <ModeToggle />
       </nav>
 
-      <aside className="h-screen hidden lg:block">
-        <Image src="/login.png" alt="login" width={554} height={832} />
+      <aside className="h-screen hidden lg:block ">
+        <Image src="/login.png" alt="login" width={554} height={832}/>
       </aside>
 
-      <div>
-        <div className="size-[75px] bg-rose-600 rounded-full"></div>
+      <div className="flex flex-col items-center gap-10 m-auto">
+        <div className="size-[75px] bg-rose-600 rounded-full m-auto"></div>
         <h1 className="text-4xl font-extrabold uppercase">Sphere</h1>
-
+        
         <Tabs defaultValue="entrar" className="w-[400px]">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="entrar">entrar</TabsTrigger>
             <TabsTrigger value="registrar">registrar</TabsTrigger>
           </TabsList>
-
+          
           <TabsContent value="entrar">
-            <form action="" className="flex flex-col items-center gap-6">
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input type="email" id="email" placeholder="Email" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="password">Senha</Label>
-                <Input type="password" id="password" />
-              </div>
-              <Button>Entrar</Button>
-            </form>
+            <LoginForm />
           </TabsContent>
 
           <TabsContent value="registrar">
-            <h1>form de registro</h1>
+            <RegisterForm />
           </TabsContent>
         </Tabs>
 
       </div>
-
+      
     </main>
   );
 }
