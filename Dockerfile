@@ -69,4 +69,4 @@ COPY --from=build /usr/src/app/src ./src
 EXPOSE 8080
 
 # Run the application.
-CMD npm start
+CMD npm run dev
